@@ -384,8 +384,8 @@ export default class Graph extends React.Component {
         this.props.onDoubleClickNode && this.props.onDoubleClickNode(clickedNodeId);
         this.nodeClickTimer = clearTimeout(this.nodeClickTimer);
       }
-      
-      this.state.config.nodeHighlightBehavior && this._setNodeHighlightedValue(id, true);
+
+      this.state.config.nodeHighlightBehavior && this._setNodeHighlightedValue(clickedNodeId, true);
     }
   };
 
