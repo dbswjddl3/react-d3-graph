@@ -90,6 +90,7 @@ export default class Node extends React.Component {
 
     const textProps = {
       ...nodeHelper.getLabelPlacementProps(this.props.dx, this.props.labelPosition),
+      onClick: this.handleOnClickNode,
       fill: this.props.fontColor,
       fontSize: this.props.fontSize,
       fontWeight: this.props.fontWeight,
