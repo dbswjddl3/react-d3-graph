@@ -339,6 +339,11 @@ export default class Graph extends React.Component {
     if (tagName.toUpperCase() === "SVG" && name === svgContainerName) {
       this.props.onClickGraph && this.props.onClickGraph(e);
     }
+
+    const highlightedNode = this.state.highlightedNode;
+    if (highlightedNode) {
+      this.state.config.nodeHighlightBehavior && this._setNodeHighlightedValue(highlightedNode, false);
+    }
   };
 
   /**
@@ -385,8 +390,10 @@ export default class Graph extends React.Component {
         this.nodeClickTimer = clearTimeout(this.nodeClickTimer);
       }
 
-      console.log(this.state.focusedNodeId, this.state.highlightedNode, clickedNodeId);
-      if (this.state.highlightedNode === clickedNodeId) {
+      const highlightedNode = this.state.highlightedNode;
+      console.log(highlightedNode, clickedNodeId);
+
+      if (highlightedNode === clickedNodeId) {
         this.state.config.nodeHighlightBehavior && this._setNodeHighlightedValue(clickedNodeId, false);
       } else {
         this.state.config.nodeHighlightBehavior && this._setNodeHighlightedValue(clickedNodeId, true);
