@@ -341,6 +341,8 @@ export default class Graph extends React.Component {
     }
 
     const highlightedNode = this.state.highlightedNode;
+    console.log("onClickGraph", highlightedNode);
+
     if (highlightedNode) {
       this.state.config.nodeHighlightBehavior && this._setNodeHighlightedValue(highlightedNode, false);
     }
@@ -396,6 +398,9 @@ export default class Graph extends React.Component {
       if (highlightedNode === clickedNodeId) {
         this.state.config.nodeHighlightBehavior && this._setNodeHighlightedValue(clickedNodeId, false);
       } else {
+        if (highlightedNode) {
+          this.state.config.nodeHighlightBehavior && this._setNodeHighlightedValue(highlightedNode, false);
+        }
         this.state.config.nodeHighlightBehavior && this._setNodeHighlightedValue(clickedNodeId, true);
       }
     }
