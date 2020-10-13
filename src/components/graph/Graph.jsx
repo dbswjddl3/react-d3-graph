@@ -385,7 +385,12 @@ export default class Graph extends React.Component {
         this.nodeClickTimer = clearTimeout(this.nodeClickTimer);
       }
 
-      this.state.config.nodeHighlightBehavior && this._setNodeHighlightedValue(clickedNodeId, true);
+      console.log(this.state.focusedNodeId, this.state.highlightedNode, clickedNodeId);
+      if (this.state.highlightedNode === clickedNodeId) {
+        this.state.config.nodeHighlightBehavior && this._setNodeHighlightedValue(clickedNodeId, false);
+      } else {
+        this.state.config.nodeHighlightBehavior && this._setNodeHighlightedValue(clickedNodeId, true);
+      }
     }
   };
 
@@ -413,8 +418,6 @@ export default class Graph extends React.Component {
     }
 
     this.props.onMouseOutNode && this.props.onMouseOutNode(id);
-
-    this.state.config.nodeHighlightBehavior && this._setNodeHighlightedValue(id, false);
   };
 
   /**
