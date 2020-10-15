@@ -125,6 +125,9 @@ function _renderDefs() {
           <Marker id={MARKERS.MARKER_MH} refX={medium} fill={highlightColor} {...markerProps} />
           <Marker id={MARKERS.MARKER_L} refX={large} fill={color} {...markerProps} />
           <Marker id={MARKERS.MARKER_LH} refX={large} fill={highlightColor} {...markerProps} />
+          <filter id="shadow" x="-10%" y="-10%" width="200%" height="200%">
+            <feDropShadow dx="3" dy="3" stdDeviation="6" flood-color="rgba(0, 19, 73, 0.14)"></feDropShadow>
+          </filter>
         </defs>
       );
     }

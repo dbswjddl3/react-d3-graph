@@ -86,6 +86,7 @@ export default class Node extends React.Component {
       onMouseOut: this.handleOnMouseOutNode,
       onMouseOver: this.handleOnMouseOverNode,
       opacity: this.props.opacity,
+      class: this.props.class,
     };
 
     const textProps = {
@@ -145,13 +146,14 @@ export default class Node extends React.Component {
       nodeProps.fill = this.props.fill;
       nodeProps.stroke = this.props.stroke;
       nodeProps.strokeWidth = this.props.strokeWidth;
+      nodeProps.filter = this.props.class === "outer" && "url(#shadow)";
 
       label = <text {...textProps}>{this.props.label}</text>;
       node = <path {...nodeProps} />;
     }
 
     const gProps = {
-      className: this.props.className,
+      className: `${this.props.className} ${this.props.class}`,
       cx: this.props.cx,
       cy: this.props.cy,
       id: this.props.id,
