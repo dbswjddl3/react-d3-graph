@@ -306,18 +306,17 @@ export default class Graph extends React.Component {
    * @returns {Object} returns the transformed elements within the svg graph area.
    */
   _zoomed = () => {
-    console.log("zoomed or panning");
-    // const transform = d3Event.transform;
+    const transform = d3Event.transform;
 
-    // d3SelectAll(`#${this.state.id}-${CONST.GRAPH_CONTAINER_ID}`).attr("transform", "transform");
+    d3SelectAll(`#${this.state.id}-${CONST.GRAPH_CONTAINER_ID}`).attr("transform", "transform");
 
-    // this.state.config.panAndZoom && this.setState({ transform: transform.k });
+    this.state.config.panAndZoom && this.setState({ transform: transform.k });
 
-    // // only send zoom change events if the zoom has changed (_zoomed() also gets called when panning)
-    // if (this.debouncedOnZoomChange && this.state.previousZoom !== transform.k) {
-    //   this.debouncedOnZoomChange(this.state.previousZoom, transform.k);
-    //   this.setState({ previousZoom: transform.k });
-    // }
+    // only send zoom change events if the zoom has changed (_zoomed() also gets called when panning)
+    if (this.debouncedOnZoomChange && this.state.previousZoom !== transform.k) {
+      this.debouncedOnZoomChange(this.state.previousZoom, transform.k);
+      this.setState({ previousZoom: transform.k });
+    }
   };
 
   /**
@@ -659,15 +658,13 @@ export default class Graph extends React.Component {
       width: this.state.config.width,
     };
 
-    const containerProps = this._generateFocusAnimationProps();
-
     return (
       <div id={`${this.state.id}-${CONST.GRAPH_WRAPPER_ID}`}>
         <svg name={`svg-container-${this.state.id}`} style={svgStyle} onClick={this.onClickGraph}>
           {defs}
           <circle cx="350" cy="350" r="300" stroke="#e4e9f2" fill="transparent" stroke-width="1"></circle>
           <circle cx="350" cy="350" r="140" stroke="#e4e9f2" fill="transparent" stroke-width="1"></circle>
-          <g id={`${this.state.id}-${CONST.GRAPH_CONTAINER_ID}`} {...containerProps}>
+          <g id={`${this.state.id}-${CONST.GRAPH_CONTAINER_ID}`}>
             {links}
             {nodes}
           </g>
