@@ -176,13 +176,14 @@ export default class Graph extends React.Component {
    * @returns {undefined}
    */
   _graphNodeDragConfig() {
-    // const customNodeDrag = d3Drag()
-    //   .on("start", this._onDragStart)
-    //   .on("drag", this._onDragMove)
-    //   .on("end", this._onDragEnd);
-    // d3Select(`#${this.state.id}-${CONST.GRAPH_WRAPPER_ID}`)
-    //   .selectAll(".node")
-    //   .call(customNodeDrag);
+    const customNodeDrag = d3Drag()
+      .on("start", this._onDragStart)
+      .on("drag", this._onDragMove)
+      .on("end", this._onDragEnd);
+
+    d3Select(`#${this.state.id}-${CONST.GRAPH_WRAPPER_ID}`)
+      .selectAll(".node")
+      .call(customNodeDrag);
   }
 
   /**
@@ -307,7 +308,7 @@ export default class Graph extends React.Component {
   _zoomed = () => {
     const transform = d3Event.transform;
 
-    d3SelectAll(`#${this.state.id}-${CONST.GRAPH_CONTAINER_ID}`).attr("transform", "translate(0,0) scale(1)");
+    d3SelectAll(`#${this.state.id}-${CONST.GRAPH_CONTAINER_ID}`).attr("transform", transform);
 
     this.state.config.panAndZoom && this.setState({ transform: transform.k });
 
@@ -661,7 +662,7 @@ export default class Graph extends React.Component {
 
     return (
       <div id={`${this.state.id}-${CONST.GRAPH_WRAPPER_ID}`}>
-        <svg name={`svg-container-${this.state.id}`} style={svgStyle} onClick={this.onClickGraph}>
+        <svg name={`svg-container-${this.state.id}-stick`} style={svgStyle} onClick={this.onClickGraph}>
           {defs}
           <circle cx="350" cy="350" r="300" stroke="#e4e9f2" fill="transparent" stroke-width="1"></circle>
           <circle cx="350" cy="350" r="140" stroke="#e4e9f2" fill="transparent" stroke-width="1"></circle>
