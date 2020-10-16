@@ -219,6 +219,8 @@ function buildNodeProps(node, config, nodeCallbacks = {}, highlightedNode, highl
   if (node.renderLabel !== undefined && typeof node.renderLabel === "boolean") {
     renderLabel = node.renderLabel;
   }
+  
+  console.log("bulid")
 
   return {
     ...node,
