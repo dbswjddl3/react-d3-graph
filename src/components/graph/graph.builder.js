@@ -220,8 +220,6 @@ function buildNodeProps(node, config, nodeCallbacks = {}, highlightedNode, highl
     renderLabel = node.renderLabel;
   }
   
-  console.log("bulid")
-
   return {
     ...node,
     className: CONST.NODE_CLASS_NAME,
