@@ -176,14 +176,13 @@ export default class Graph extends React.Component {
    * @returns {undefined}
    */
   _graphNodeDragConfig() {
-    const customNodeDrag = d3Drag()
-      .on("start", this._onDragStart)
-      .on("drag", this._onDragMove)
-      .on("end", this._onDragEnd);
-
-    d3Select(`#${this.state.id}-${CONST.GRAPH_WRAPPER_ID}`)
-      .selectAll(".node")
-      .call(customNodeDrag);
+    // const customNodeDrag = d3Drag()
+    //   .on("start", this._onDragStart)
+    //   .on("drag", this._onDragMove)
+    //   .on("end", this._onDragEnd);
+    // d3Select(`#${this.state.id}-${CONST.GRAPH_WRAPPER_ID}`)
+    //   .selectAll(".node")
+    //   .call(customNodeDrag);
   }
 
   /**
@@ -308,7 +307,7 @@ export default class Graph extends React.Component {
   _zoomed = () => {
     const transform = d3Event.transform;
 
-    d3SelectAll(`#${this.state.id}-${CONST.GRAPH_CONTAINER_ID}`).attr("transform", transform);
+    d3SelectAll(`#${this.state.id}-${CONST.GRAPH_CONTAINER_ID}`).attr("transform", "translate(0,0) scale(1)");
 
     this.state.config.panAndZoom && this.setState({ transform: transform.k });
 
