@@ -219,7 +219,7 @@ function buildNodeProps(node, config, nodeCallbacks = {}, highlightedNode, highl
   if (node.renderLabel !== undefined && typeof node.renderLabel === "boolean") {
     renderLabel = node.renderLabel;
   }
-
+  
   return {
     ...node,
     className: CONST.NODE_CLASS_NAME,
