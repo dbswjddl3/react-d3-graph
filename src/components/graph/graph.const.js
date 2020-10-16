@@ -4,7 +4,7 @@ export default {
   COORDS_SEPARATOR: ",",
   FORCE_X: 0.06,
   FORCE_Y: 0.06,
-  GRAPH_CONTAINER_ID: "graph-container-zoomable",
+  GRAPH_CONTAINER_ID: "graph-container",
   GRAPH_WRAPPER_ID: "graph-wrapper",
   KEYWORDS: {
     SAME: "SAME",
