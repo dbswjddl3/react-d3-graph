@@ -306,17 +306,18 @@ export default class Graph extends React.Component {
    * @returns {Object} returns the transformed elements within the svg graph area.
    */
   _zoomed = () => {
-    const transform = d3Event.transform;
+    console.log("zoomed")
+//     const transform = d3Event.transform;
 
-    d3SelectAll(`#${this.state.id}-${CONST.GRAPH_CONTAINER_ID}`).attr("transform", transform);
+//     d3SelectAll(`#${this.state.id}-${CONST.GRAPH_CONTAINER_ID}`).attr("transform", transform);
 
-    this.state.config.panAndZoom && this.setState({ transform: transform.k });
+//     this.state.config.panAndZoom && this.setState({ transform: transform.k });
 
-    // only send zoom change events if the zoom has changed (_zoomed() also gets called when panning)
-    if (this.debouncedOnZoomChange && this.state.previousZoom !== transform.k) {
-      this.debouncedOnZoomChange(this.state.previousZoom, transform.k);
-      this.setState({ previousZoom: transform.k });
-    }
+//     // only send zoom change events if the zoom has changed (_zoomed() also gets called when panning)
+//     if (this.debouncedOnZoomChange && this.state.previousZoom !== transform.k) {
+//       this.debouncedOnZoomChange(this.state.previousZoom, transform.k);
+//       this.setState({ previousZoom: transform.k });
+//     }
   };
 
   /**
