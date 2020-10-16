@@ -662,7 +662,7 @@ export default class Graph extends React.Component {
 
     return (
       <div id={`${this.state.id}-${CONST.GRAPH_WRAPPER_ID}`}>
-        <svg name={`svg-container-${this.state.id}-stick`} style={svgStyle} onClick={this.onClickGraph}>
+        <svg name={`svg-container-${this.state.id}`} style={svgStyle} onClick={this.onClickGraph}>
           {defs}
           <circle cx="350" cy="350" r="300" stroke="#e4e9f2" fill="transparent" stroke-width="1"></circle>
           <circle cx="350" cy="350" r="140" stroke="#e4e9f2" fill="transparent" stroke-width="1"></circle>

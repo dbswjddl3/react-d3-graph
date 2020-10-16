@@ -338,9 +338,8 @@ function getCenterAndZoomTransformation(d3Node, config) {
   const { width, height, focusZoom } = config;
 
   return `
-        translate(${width / 2}, ${height / 2})
+        translate(0, 0)
         scale(${focusZoom})
-        translate(${-d3Node.x}, ${-d3Node.y})
     `;
 }
 
